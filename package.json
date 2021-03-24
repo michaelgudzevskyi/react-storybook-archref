@@ -1,0 +1,32 @@
+{
+  "name": "react-storybook-archref",
+  "version": "1.0.0",
+  "description": "This is a template/starter to create a React UI library using Storybook and TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelgudzevskyi/react-storybook-archref.git"
+  },
+  "keywords": [
+    "react",
+    "storybook",
+    "typescript",
+    "ui",
+    "template",
+    "starter"
+  ],
+  "author": "Michael Gudzevskyi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelgudzevskyi/react-storybook-archref/issues"
+  },
+  "homepage": "https://github.com/michaelgudzevskyi/react-storybook-archref#readme",
+  "devDependencies": {
+    "@types/react": "^17.0.3",
+    "react": "^17.0.2",
+    "typescript": "^4.2.3"
+  }
+}
