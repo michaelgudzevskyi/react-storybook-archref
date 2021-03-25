@@ -4,15 +4,12 @@
 /node_modules
 /.pnp
 .pnp.js
-package-lock.json
-/package-lock.json
-yarn.lock
+
 # testing
 /coverage
 
 # production
 /build
-.nyc_output
 
 # misc
 .DS_Store
@@ -20,14 +17,7 @@ yarn.lock
 .env.development.local
 .env.test.local
 .env.production.local
-.sass-cache
-.eslintcache
-/.eslintcache
-.nyc_output
-/.nyc_output/processinfo/index.json
-.nyc_output/processinfo/index.json
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-debug.log
