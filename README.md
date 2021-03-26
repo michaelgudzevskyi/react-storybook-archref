@@ -1,4 +1,4 @@
-# UI library using React + Storybook with TypeScript
+# UI library using React + Storybook with TypeScript and Jest
 
 This is a boilerplate project for writing React NPM modules (or component libraries) in TypeScript + Storybook.
 
