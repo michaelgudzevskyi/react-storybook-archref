@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import {ComponentSize, heights, sidePaddings} from '../../config/sizes';
 import {ButtonType} from './button';
 
@@ -39,17 +40,17 @@ export const StyledButton = styled.button<StyledButtonProps>`
   justify-content: center;
   /* Add margin in case of loading or icon */
   & > *:nth-child(1) {
-    margin-left: ${(pr) => (pr.withText ? 7 : 0)}px;
+    margin-left: ${pr => (pr.withText ? 7 : 0)}px;
   }
   font-size: 15px;
   border: none;
   cursor: pointer;
-  background-color: ${(pr) => typeColors[pr.innerType].regular};
-  padding: 0 ${(pr) => sidePaddings[pr.size]}px;
-  height: ${(pr) => heights[pr.size]}px;
-  color: ${(pr) =>
+  background-color: ${pr => typeColors[pr.innerType].regular};
+  padding: 0 ${pr => sidePaddings[pr.size]}px;
+  height: ${pr => heights[pr.size]}px;
+  color: ${pr =>
     pr.innerType === 'ghost' ? typeColors['default'].regular : '#fff'};
-  ${(pr) =>
+  ${pr =>
     pr.disabled
       ? `
         background-color: #a6a6a6;
@@ -65,10 +66,10 @@ export const StyledButton = styled.button<StyledButtonProps>`
   outline: none;
   &:focus {
     box-shadow: 0 0 0 1px #fff,
-      0 0 0 2px ${(pr) => typeColors[pr.innerType].regular};
+      0 0 0 2px ${pr => typeColors[pr.innerType].regular};
   }
   &:hover {
-    background-color: ${(pr) => typeColors[pr.innerType].hover};
+    background-color: ${pr => typeColors[pr.innerType].hover};
   }
 `;
 

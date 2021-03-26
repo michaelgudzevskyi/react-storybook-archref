@@ -1,1 +1,1 @@
-{"version":3,"file":"global.styles.d.ts","sourceRoot":"","sources":["../../src/config/global.styles.ts"],"names":[],"mappings":"AACA,OAAO,oBAAoB,CAAA;AAE3B,eAAO,MAAM,WAAW,gGAOvB,CAAA"}
+{"version":3,"file":"global.styles.d.ts","sourceRoot":"","sources":["../../src/config/global.styles.ts"],"names":[],"mappings":"AACA,OAAO,oBAAoB,CAAC;AAE5B,eAAO,MAAM,WAAW,gGAOvB,CAAC"}

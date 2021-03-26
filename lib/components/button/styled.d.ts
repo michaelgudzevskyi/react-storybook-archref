@@ -1,5 +1,5 @@
-import { ComponentSize } from "../../config/sizes";
-import { ButtonType } from "./button";
+import { ComponentSize } from '../../config/sizes';
+import { ButtonType } from './button';
 interface StyledButtonProps {
     innerType: ButtonType;
     size: ComponentSize;

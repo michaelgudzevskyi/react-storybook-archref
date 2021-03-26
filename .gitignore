@@ -11,6 +11,7 @@
 # production
 /build
 /lib
+lib
 /storybook-static
 
 # misc
