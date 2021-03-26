@@ -1,32 +1,26 @@
 {
   "name": "react-storybook-archref",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "@types/styled-components": "^5.1.9",
-    "copyfiles": "^2.4.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "styled-components": "^5.2.1",
-    "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
+    "styled-components": "^5.2.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "tsc",
+    "build": "tsc --build \"./tsconfig.json\"",
+    "build:storybook": "build-storybook -s public",
+    "clean": "if exist lib rd /s /q lib",
     "compile-icons": "npx @svgr/cli -d src/assets/icons src/assets/icons --typescript",
-    "test": "react-scripts test",
+    "copy-fonts": "copyfiles -u 1 src/config/fonts/* lib/",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "postbuild": "npm run copy-fonts",
+    "prebuild": "npm run clean && npm run compile-icons",
+    "prepublish": "npm run build",
+    "start:storybook": "start-storybook -p 6006 -s public",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": [
@@ -46,12 +40,32 @@
       "last 1 safari version"
     ]
   },
+  "peerDependencies": {
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
+  },
   "devDependencies": {
     "@storybook/addon-actions": "^6.1.21",
     "@storybook/addon-links": "^6.1.21",
     "@storybook/node-logger": "^6.1.21",
+    "@storybook/addon-essentials": "^6.1.21",
     "@storybook/preset-create-react-app": "^3.1.7",
     "@storybook/react": "^6.1.21",
-    "@svgr/cli": "^5.4.0"
+    "@svgr/cli": "^5.4.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.9",
+    "copyfiles": "^2.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "styled-components": "^5.2.1",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1"
   }
 }
