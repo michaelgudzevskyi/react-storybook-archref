@@ -1,9 +1,8 @@
-import { ElementType, ReactNode, MouseEventHandler, ForwardRefRenderFunction, forwardRef, MutableRefObject } from "react";
-import { StyledButton } from "./styled"
+import React, { ElementType, MouseEventHandler, ReactNode } from 'react';
+import { StyledButton, StyledIcon } from './styled';
+import { ComponentSize } from '../../config/sizes';
 
 export type ButtonType = 'default' | 'danger' | 'ghost' | 'secondary';
-
-export type ComponentSize = 'default' | 'large' | 'small';
 
 interface BaseButtonProps {
     type?: ButtonType;
@@ -19,21 +18,24 @@ type HTMLButtonProps = {
     onClick?: MouseEventHandler<HTMLButtonElement>;
 } & BaseButtonProps;
 
+/**
+ * If href is supplied, button becomes an anchor link
+ */
 type HTMLAnchorProps = {
     href?: string;
 } & BaseButtonProps;
 
 /**
- * For React Router Link
+ * If `as` is supplied, button becomes a custom html node specified in `as`
  */
 type CustomNodeProps = {
-    as?: ElementType
-    to?: string
-} & BaseButtonProps
+    as?: ElementType;
+    to?: string;
+} & BaseButtonProps;
 
-export type ButtonProps = HTMLButtonProps & HTMLAnchorProps & CustomNodeProps
+export type ButtonProps = HTMLButtonProps & HTMLAnchorProps & CustomNodeProps;
 
-const Button: ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
+const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
     const { 
         type = 'default',
         icon,
@@ -52,10 +54,18 @@ const Button: ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
         innerType: type,
         size,
         disabled,
-        withText: children !== null
+        withText: children != null
     }
 
-    if (as) {
+
+    const childrenWithIcon = !icon ? children : (
+        <>
+            {children}
+            <StyledIcon as={icon} />
+        </>
+    );
+    
+    if (as && !disabled) {
         return (
             <StyledButton
                 as={as}
@@ -64,23 +74,32 @@ const Button: ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
                 className={className}
                 {...styles}
             >
-                {loading? 'Loading...' : children}
+                {loading ? (
+                    <>
+                        Loading
+               
+                    </>
+                ) : childrenWithIcon}
             </StyledButton>
         )
     }
 
-    if (href) {
+    if (href && !disabled) {
         return (
             <StyledButton
                 as='a'
                 href={href}
-                ref={ref as MutableRefObject<HTMLAnchorElement>}
+                ref={ref as React.MutableRefObject<HTMLAnchorElement>}
                 className={className}
                 {...styles}
             >
-                {loading? 'Loading...' : children}
+                {loading ? (
+                    <>
+                        Loading
+                    </>
+                ) : childrenWithIcon}
             </StyledButton>
-        )
+        );
     }
 
     return (
@@ -88,13 +107,17 @@ const Button: ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
             as='button'
             type='button'
             onClick={onClick}
-            ref={ref as MutableRefObject<HTMLButtonElement>}
+            ref={ref as React.MutableRefObject<HTMLButtonElement>}
             className={className}
             {...styles}
         >
-            {loading? 'Loading...' : children}
+            {loading ? (
+                <>
+                    Loading
+                </>
+            ) : childrenWithIcon }
         </StyledButton>
-    )
-} 
+    );
+}
 
-export default forwardRef<unknown, ButtonProps>(Button)
+export default React.forwardRef<unknown, ButtonProps>(Button);
