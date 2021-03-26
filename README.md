@@ -21,6 +21,8 @@ This boilderplate includes a [Storybook](https://storybook.js.org/) to visualize
 7. `npm build` To build your React components befor deploying to NPM.
 8. `npm publish` Publish your module.
 
+## After puplish
+
 ## `npm` Scripts
 
 - `test` - _run unit tests_
