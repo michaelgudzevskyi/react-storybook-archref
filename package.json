@@ -94,7 +94,10 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "concurrently -r \"npm run lint\"",
+      "pre-push": "concurrently -r \"npm run check:cov\" --watchAll=false",
+      "prepare-commit-msg": "exec < /dev/tty && ./node_modules/.bin/git-cz --hook || true",
+      "post-merge": "npm instal"
     }
   },
   "eslintConfig": {
