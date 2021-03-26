@@ -1,5 +1,5 @@
-import {createGlobalStyle} from 'styled-components'
-import './fonts/styles.css'
+import {createGlobalStyle} from 'styled-components';
+import './fonts/styles.css';
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -8,4 +8,4 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         pading: 0;
     }
-`
+`;

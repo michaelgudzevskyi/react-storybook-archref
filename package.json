@@ -1,11 +1,25 @@
 {
   "name": "react-storybook-archref",
   "version": "1.0.3",
+  "author": "Michael Gudzevskyi",
   "private": false,
+  "license": "MIT",
   "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "files": [
     "lib"
   ],
+  "homepage": "https://github.com/michaelgudzevskyi/react-storybook-archref",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaelgudzevskyi/react-storybook-archref.git"
+  },
+  "bugs": {
+    "url": "https://github.com/michaelgudzevskyi/react-storybook-archref/issues",
+    "email": "hello@michaelgudzevskyi.com"
+  },
   "dependencies": {
     "styled-components": "^5.2.1"
   },
@@ -20,7 +34,19 @@
     "prebuild": "npm run clean && npm run compile-icons",
     "prepublish": "npm run build",
     "start:storybook": "start-storybook -p 6006 -s public",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "lint": "eslint {.storybook,stories,src,__tests__}/**/* --ext .{{t,j}s{,x}}",
+    "lint:fix": "npm lint --fix"
+  },
+  "lint-staged": {
+    "*.{{t,j}s{,x}}": [
+      "eslint --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "eslintConfig": {
     "extends": [
