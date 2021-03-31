@@ -2,7 +2,7 @@
 
 This is a boilerplate project for writing React NPM modules (or component libraries) in TypeScript + Storybook.
 
-This boilderplate includes a [Storybook](https://storybook.js.org/) to visualize and demonstrate your components. The Storybook is automatically deployed to [Zeit](https://zeit.co) once configured (see the Storybook for this template [here](https://react-ts-module-boilerplate.develohpanda.now.sh)). This allows you to test each PR visually and in isolation.
+This boilderplate includes a [Storybook](https://storybook.js.org/) to visualize and demonstrate your components.
 
 # Features
 
@@ -22,6 +22,8 @@ This boilderplate includes a [Storybook](https://storybook.js.org/) to visualize
 8. `npm publish` Publish your module.
 
 ## After puplish
+
+To do...
 
 ## `npm` Scripts
 
