@@ -11,6 +11,16 @@
   "files": [
     "lib"
   ],
+  "keywords": [
+    "storybook",
+    "react",
+    "reactjs",
+    "typescript",
+    "ui-components",
+    "library",
+    "npm",
+    "npm-package"
+  ],
   "homepage": "https://github.com/michaelgudzevskyi/react-storybook-archref",
   "repository": {
     "type": "git",
